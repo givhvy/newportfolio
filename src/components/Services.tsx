@@ -1,4 +1,6 @@
 import { Briefcase, Smartphone, Globe, Package } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { containerVariants, fadeUpVariants, scaleUpVariants, scrollAnimationProps } from '../utils/animations';
 
 export default function Services() {
   const services = [
@@ -31,21 +33,43 @@ export default function Services() {
   return (
     <section id="services" className="py-32 px-6 bg-gradient-to-b from-transparent to-[#0f0f0f]">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-20">
-          <span className="text-sm uppercase tracking-wider text-white/50">Services</span>
-          <h2 className="text-5xl md:text-6xl font-light mt-4 mb-6">
+        <motion.div
+          className="text-center mb-20"
+          {...scrollAnimationProps}
+          variants={containerVariants}
+        >
+          <motion.span
+            className="text-sm uppercase tracking-wider text-white/50"
+            variants={fadeUpVariants}
+          >
+            Services
+          </motion.span>
+          <motion.h2
+            className="text-5xl md:text-6xl font-light mt-4 mb-6"
+            variants={fadeUpVariants}
+          >
             What I <span className="text-white/60">Offer</span>
-          </h2>
-          <p className="text-lg text-white/70 max-w-2xl mx-auto">
+          </motion.h2>
+          <motion.p
+            className="text-lg text-white/70 max-w-2xl mx-auto"
+            variants={fadeUpVariants}
+          >
             Comprehensive digital solutions tailored to your unique needs and goals
-          </p>
-        </div>
+          </motion.p>
+        </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-6">
+        <motion.div
+          className="grid md:grid-cols-2 gap-6"
+          {...scrollAnimationProps}
+          variants={containerVariants}
+        >
           {services.map((service, index) => (
-            <div
+            <motion.div
               key={index}
               className="group p-10 bg-[#111111] border border-white/10 rounded-3xl hover:bg-[#161616] hover:border-white/20 transition-all duration-300"
+              variants={scaleUpVariants}
+              whileHover={{ scale: 1.02, y: -8 }}
+              transition={{ duration: 0.3 }}
             >
               <div className="w-14 h-14 bg-white/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-white/20 group-hover:scale-110 transition-all">
                 <service.icon className="w-7 h-7" />
@@ -62,9 +86,9 @@ export default function Services() {
                   </li>
                 ))}
               </ul>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

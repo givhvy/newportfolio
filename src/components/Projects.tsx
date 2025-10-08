@@ -1,4 +1,6 @@
 import { ExternalLink, Github, Layers, Sparkles, Rocket, Zap } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { containerVariants, fadeUpVariants, scaleUpVariants, scrollAnimationProps } from '../utils/animations';
 
 export default function Projects() {
   const projects = [
@@ -39,21 +41,43 @@ export default function Projects() {
   return (
     <section id="projects" className="py-32 px-6">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-20">
-          <span className="text-sm uppercase tracking-wider text-white/50">Portfolio</span>
-          <h2 className="text-5xl md:text-6xl font-light mt-4 mb-6">
+        <motion.div
+          className="text-center mb-20"
+          {...scrollAnimationProps}
+          variants={containerVariants}
+        >
+          <motion.span
+            className="text-sm uppercase tracking-wider text-white/50"
+            variants={fadeUpVariants}
+          >
+            Portfolio
+          </motion.span>
+          <motion.h2
+            className="text-5xl md:text-6xl font-light mt-4 mb-6"
+            variants={fadeUpVariants}
+          >
             Featured <span className="text-white/60">Work</span>
-          </h2>
-          <p className="text-lg text-white/70 max-w-2xl mx-auto">
+          </motion.h2>
+          <motion.p
+            className="text-lg text-white/70 max-w-2xl mx-auto"
+            variants={fadeUpVariants}
+          >
             A selection of recent projects that showcase my skills and passion
-          </p>
-        </div>
+          </motion.p>
+        </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-8">
+        <motion.div
+          className="grid md:grid-cols-2 gap-8"
+          {...scrollAnimationProps}
+          variants={containerVariants}
+        >
           {projects.map((project, index) => (
-            <div
+            <motion.div
               key={index}
               className="group relative bg-[#111111] border border-white/10 rounded-3xl overflow-hidden hover:border-white/20 transition-all duration-300"
+              variants={scaleUpVariants}
+              whileHover={{ y: -10 }}
+              transition={{ duration: 0.4 }}
             >
               <div className="aspect-video relative overflow-hidden bg-gradient-to-br from-[#1a1a1a] to-[#0a0a0a] flex items-center justify-center">
                 <project.icon className="w-24 h-24 text-white/20 group-hover:text-white/30 group-hover:scale-110 transition-all duration-500" />
@@ -92,9 +116,9 @@ export default function Projects() {
                   </a>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

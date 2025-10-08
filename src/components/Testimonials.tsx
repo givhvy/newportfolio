@@ -1,4 +1,6 @@
 import { Star } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { containerVariants, fadeUpVariants, scaleUpVariants, scrollAnimationProps } from '../utils/animations';
 
 export default function Testimonials() {
   const testimonials = [
@@ -28,21 +30,43 @@ export default function Testimonials() {
   return (
     <section id="testimonials" className="py-32 px-6 bg-gradient-to-b from-[#0f0f0f] to-transparent">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-20">
-          <span className="text-sm uppercase tracking-wider text-white/50">Testimonials</span>
-          <h2 className="text-5xl md:text-6xl font-light mt-4 mb-6">
+        <motion.div
+          className="text-center mb-20"
+          {...scrollAnimationProps}
+          variants={containerVariants}
+        >
+          <motion.span
+            className="text-sm uppercase tracking-wider text-white/50"
+            variants={fadeUpVariants}
+          >
+            Testimonials
+          </motion.span>
+          <motion.h2
+            className="text-5xl md:text-6xl font-light mt-4 mb-6"
+            variants={fadeUpVariants}
+          >
             What Clients <span className="text-white/60">Say</span>
-          </h2>
-          <p className="text-lg text-white/70 max-w-2xl mx-auto">
+          </motion.h2>
+          <motion.p
+            className="text-lg text-white/70 max-w-2xl mx-auto"
+            variants={fadeUpVariants}
+          >
             Don't just take my word for it—hear from some of the amazing people I've worked with
-          </p>
-        </div>
+          </motion.p>
+        </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-6">
+        <motion.div
+          className="grid md:grid-cols-3 gap-6"
+          {...scrollAnimationProps}
+          variants={containerVariants}
+        >
           {testimonials.map((testimonial, index) => (
-            <div
+            <motion.div
               key={index}
               className="p-8 bg-[#111111] border border-white/10 rounded-3xl hover:border-white/20 transition-all"
+              variants={scaleUpVariants}
+              whileHover={{ scale: 1.02, y: -5 }}
+              transition={{ duration: 0.3 }}
             >
               <div className="flex gap-1 mb-6">
                 {[...Array(testimonial.rating)].map((_, i) => (
@@ -65,9 +89,9 @@ export default function Testimonials() {
                   <p className="text-sm text-white/50">{testimonial.role}</p>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
