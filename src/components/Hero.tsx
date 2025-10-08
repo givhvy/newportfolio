@@ -19,7 +19,7 @@ export default function Hero({ scrollToSection }: HeroProps) {
         <img
           src="https://res.cloudinary.com/dxqrmxll4/image/upload/v1759865286/z7092697499138_325ef6e26c355a465ede8d0740f592c5_vcploz.jpg"
           alt="Background"
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover object-[60%_top] md:object-center"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a]/70 via-[#0a0a0a]/50 to-[#0a0a0a]"></div>
       </motion.div>
@@ -43,7 +43,7 @@ export default function Hero({ scrollToSection }: HeroProps) {
             variants={fadeUpVariants}
           >
             I'm a versatile designer and developer specializing in creating beautiful,
-            functional digital experiences that help businesses grow.
+            functional digital experiences.
           </motion.p>
 
           <motion.div

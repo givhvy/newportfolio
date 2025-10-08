@@ -89,10 +89,11 @@ export const slideRightVariants: Variants = {
 };
 
 // Blur fade animation - hiện đại như Framer
+// Giảm blur để tránh flash trên mobile Safari
 export const blurFadeVariants: Variants = {
   hidden: {
     opacity: 0,
-    filter: 'blur(10px)',
+    filter: 'blur(4px)',
     y: 20,
   },
   visible: {
@@ -100,15 +101,16 @@ export const blurFadeVariants: Variants = {
     filter: 'blur(0px)',
     y: 0,
     transition: {
-      duration: 0.7,
+      duration: 0.5,
       ease: [0.22, 1, 0.36, 1],
     },
   },
 };
 
 // Viewport options cho scroll animations
+// Giảm amount và tăng margin để trigger sớm hơn, tránh flash trên mobile
 export const scrollAnimationProps = {
-  viewport: { once: true, amount: 0.3 },
+  viewport: { once: true, amount: 0.1, margin: "0px 0px -100px 0px" },
   initial: 'hidden',
   whileInView: 'visible',
 };
