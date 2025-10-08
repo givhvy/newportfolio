@@ -42,8 +42,13 @@ export default function Hero({ scrollToSection }: HeroProps) {
             className="text-lg md:text-xl text-white/70 max-w-2xl leading-relaxed"
             variants={fadeUpVariants}
           >
-            I'm a versatile designer and developer specializing in creating beautiful,
-            functional digital experiences.
+            <span className="md:hidden">
+              I'm a versatile designer specializing in creating beautiful digital experiences.
+            </span>
+            <span className="hidden md:inline">
+              I'm a versatile designer and developer specializing in creating beautiful,
+              functional digital experiences.
+            </span>
           </motion.p>
 
           <motion.div
