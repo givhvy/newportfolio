@@ -43,7 +43,7 @@ export default function Hero({ scrollToSection }: HeroProps) {
             variants={fadeUpVariants}
           >
             I'm a versatile designer and developer specializing in creating beautiful,
-            functional digital experiences that help businesses grow. Let's build something great together.
+            functional digital experiences that help businesses grow.
           </motion.p>
 
           <motion.div
